@@ -14,7 +14,7 @@ from PPU/GPU implementation. The NES emulation itself is separate from
 any system-specific GUI implementation or user interaction from the OS.
 
 Some things that are functional / complete:
-- CPU (6502 microprocessor - includes all 56 instructions + 8 addressing modes)
+- CPU (6502 microprocessor - includes all 56 instructions + 12 addressing modes)
 - PPU (Pixel Processing Unit)
 - Mapper (000)
 - Cartridge (RAM + loading .nes ROMs)

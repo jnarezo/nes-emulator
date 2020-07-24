@@ -35,4 +35,6 @@
 
 # Libraries
 lib/*
-include/SDL2
+
+bin/*
+build/*

@@ -13,7 +13,7 @@ PPU::PPU()
 
 PPU::~PPU() {}
 
-uint8_t PPU::cpuRead(uint16_t addr, bool readOnly = false)
+uint8_t PPU::cpuRead(uint16_t addr, bool readOnly)
 {
     switch (addr) {
         case 0x0000:    // Control
@@ -61,7 +61,7 @@ bool PPU::cpuWrite(uint16_t addr, uint8_t data)
     }
 }
 
-uint8_t PPU::ppuRead(uint16_t addr, bool readOnly = false)
+uint8_t PPU::ppuRead(uint16_t addr, bool readOnly)
 {
     // Max $3FFF
     addr &= 0x3FFF;
@@ -89,7 +89,7 @@ bool PPU::ppuWrite(uint16_t addr, uint8_t data)
 
     if (addr >= 0x0000 && addr <= 0x1FFF) {
         // PPU read from Pattern (Cartridge)
-        cart->ppuWrite(addr & 0x07FF);
+        cart->ppuWrite(addr & 0x07FF, data);
     } else if (addr >= 0x2000 && addr <= 0x3EFF) {
         // PPU read from nametables
         tblName[addr >> 4][addr & 0x03FF] = data;
@@ -115,12 +115,7 @@ void PPU::clock()
         scanline++;
         if (scanline > 260) {
             scanline = -1;
-            
+            // TODO
         }
     }
-}
-
-void PPU::cpuRead(uint16_t addr, uint8_t data)
-{
-
 }

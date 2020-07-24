@@ -6,7 +6,4 @@ Mapper::Mapper(uint8_t numPRGBanks, uint8_t numCHRBanks)
     this->numCHRBanks = numCHRBanks;
 }
 
-Mapper::~Mapper()
-{
-
-}
+Mapper::~Mapper() {}

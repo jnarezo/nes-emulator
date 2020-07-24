@@ -9,7 +9,7 @@ Bus::Bus()
 
 Bus::~Bus() {}
 
-uint8_t Bus::cpuRead(uint16_t addr, bool readOnly = false)
+uint8_t Bus::cpuRead(uint16_t addr, bool readOnly)
 {
     if (addr >= 0x0000 && addr <= 0x1FFF)
     {
@@ -17,7 +17,7 @@ uint8_t Bus::cpuRead(uint16_t addr, bool readOnly = false)
         return ram[addr & 0x07FF];
     } else if (addr >= 0x2000 && addr <= 0x3FFF) {
         // CPU read from PPU
-        return ppu.cpuRead(addr & 0x0007)
+        return ppu.cpuRead(addr & 0x0007);
     } else if (addr >= 0x8000 && addr <= 0xFFFF) {
         // CPU read from cartridge
         return cart->cpuRead(addr);
@@ -34,14 +34,14 @@ void Bus::cpuWrite(uint16_t addr, uint8_t data)
         ram[addr & 0x07FF] = data;
     } else if (addr >= 0x2000 && addr <= 0x3FFF) {
         // CPU write to PPU
-        ppu.cpuWrite(addr & 0x0007, data)
+        ppu.cpuWrite(addr & 0x0007, data);
     } else if (addr >= 0x8000 && addr <= 0xFFFF) {
         // CPU write to cartridge
         cart->cpuWrite(addr, data);
     }
 }
 
-uint8_t Bus::ppuRead(uint16_t addr, bool readOnly = false)
+uint8_t Bus::ppuRead(uint16_t addr, bool readOnly)
 {
     
 }

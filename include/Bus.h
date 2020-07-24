@@ -2,6 +2,7 @@
 
 #include <cstdint>
 #include <array>
+#include <memory>
 
 #include "CPU.h"
 #include "PPU.h"
@@ -33,4 +34,4 @@ public:
     void insertCart(const std::shared_ptr<Cartridge> &cart);
     void clock();
     void reset();
-}
+};

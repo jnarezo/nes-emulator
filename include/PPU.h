@@ -1,10 +1,11 @@
 #pragma once
 
 #include <cstdint>
+#include <memory>
 
 #include "Cartridge.h"
 
-using std::uint8_t, std::uint16_t, std::uint32_t;
+// using std::uint8_t, std::uint16_t, std::uint32_t;
 
 class PPU
 {
@@ -40,4 +41,4 @@ public:
 
     void connectCartridge(const std::shared_ptr<Cartridge> &cart);
     void clock();
-}
+};

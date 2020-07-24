@@ -2,6 +2,7 @@
 
 #include <cstdint>
 #include <vector>
+#include <memory>
 
 #include "Mapper000.h"
 
@@ -32,4 +33,4 @@ public:
     // For the PPU
     uint8_t ppuRead(uint16_t addr);
     void ppuWrite(uint16_t addr, uint8_t data);
-}
+};
